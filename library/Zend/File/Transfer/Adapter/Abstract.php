@@ -1434,22 +1434,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      */
     protected function _isPathWriteable($path)
     {
-        $tempFile = rtrim($path, "/\\");
-        $tempFile .= '/' . 'test.1';
-
-        $result = @file_put_contents($tempFile, 'TEST');
-
-        if ($result == false) {
-            return false;
-        }
-
-        $result = @unlink($tempFile);
-
-        if ($result == false) {
-            return false;
-        }
-
-        return true;
+        return is_writable($path);
     }
 
     /**
