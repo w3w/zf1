@@ -369,8 +369,12 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
             $escapeEnd = null;
         }
 
-        $html = '<style type="text/css"' . $attrString . '>' . PHP_EOL
-              . $escapeStart . $indent . $item->content . PHP_EOL . $escapeEnd
+        if ($this->view && $this->view->doctype()->isHtml5()) {
+            $html = '<style' . $attrString . '>';
+        } else {
+            $html = '<style type="text/css"' . $attrString . '>';
+        }
+        $html .= PHP_EOL . $escapeStart . $indent . $item->content . PHP_EOL . $escapeEnd
               . '</style>';
 
         if (null == $escapeStart && null == $escapeEnd) {

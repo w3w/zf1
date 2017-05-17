@@ -35,16 +35,19 @@
  * @method $this appendHttpEquiv($keyValue, $content, $conditionalHttpEquiv)
  * @method $this appendName($keyValue, $content, $conditionalName)
  * @method $this appendProperty($property, $content, $modifiers)
+ * @method $this appendItemprop($keyValue, $content, $modifiers)
  * @method $this offsetSetHttpEquiv($index, $keyValue, $content, $conditionalHttpEquiv)
  * @method $this offsetSetName($index, $keyValue, $content, $conditionalName)
  * @method $this offsetSetProperty($index, $property, $content, $modifiers)
+ * @method $this offsetSetItemprop($index, $keyValue, $content, $modifiers)
  * @method $this prependHttpEquiv($keyValue, $content, $conditionalHttpEquiv)
  * @method $this prependName($keyValue, $content, $conditionalName)
  * @method $this prependProperty($property, $content, $modifiers)
- * @method $this setCharset($charset)
+ * @method $this prependItemprop($keyValue, $content, $modifiers)
  * @method $this setHttpEquiv($keyValue, $content, $modifiers)
  * @method $this setName($keyValue, $content, $modifiers)
  * @method $this setProperty($property, $content, $modifiers)
+ * @method $this setItemprop($keyValue, $content, $modifiers)
  */
 class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_Standalone
 {
@@ -52,7 +55,7 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
      * Types of attributes
      * @var array
      */
-    protected $_typeKeys     = array('name', 'http-equiv', 'charset', 'property');
+    protected $_typeKeys     = array('name', 'http-equiv', 'charset', 'property', 'itemprop');
     protected $_requiredKeys = array('content');
     protected $_modifierKeys = array('lang', 'scheme');
 
@@ -113,6 +116,8 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
                 return 'http-equiv';
             case 'Property':
                 return 'property';
+            case 'Itemprop':
+                return 'itemprop';
             default:
                 // require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception(sprintf('Invalid type "%s" passed to _normalizeType', $type));
@@ -126,17 +131,21 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
      *
      * Allows the following 'virtual' methods:
      * - appendName($keyValue, $content, $modifiers = array())
-     * - offsetGetName($index, $keyValue, $content, $modifers = array())
+     * - offsetSetName($index, $keyValue, $content, $modifers = array())
      * - prependName($keyValue, $content, $modifiers = array())
      * - setName($keyValue, $content, $modifiers = array())
      * - appendHttpEquiv($keyValue, $content, $modifiers = array())
-     * - offsetGetHttpEquiv($index, $keyValue, $content, $modifers = array())
+     * - offsetSetHttpEquiv($index, $keyValue, $content, $modifers = array())
      * - prependHttpEquiv($keyValue, $content, $modifiers = array())
      * - setHttpEquiv($keyValue, $content, $modifiers = array())
      * - appendProperty($keyValue, $content, $modifiers = array())
-     * - offsetGetProperty($index, $keyValue, $content, $modifiers = array())
+     * - offsetSetProperty($index, $keyValue, $content, $modifiers = array())
      * - prependProperty($keyValue, $content, $modifiers = array())
      * - setProperty($keyValue, $content, $modifiers = array())
+     * - appendItemprop($keyValue, $content, $modifiers = array())
+     * - offsetSetItemprop($index, $keyValue, $content, $modifiers = array())
+     * - prependItemprop($keyValue, $content, $modifiers = array())
+     * - setItemprop($keyValue, $content, $modifiers = array())
      *
      * @param  string $method
      * @param  array $args
@@ -144,7 +153,7 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
      */
     public function __call($method, $args)
     {
-        if (preg_match('/^(?P<action>set|(pre|ap)pend|offsetSet)(?P<type>Name|HttpEquiv|Property)$/', $method, $matches)) {
+        if (preg_match('/^(?P<action>set|(pre|ap)pend|offsetSet)(?P<type>Name|HttpEquiv|Property|Itemprop)$/', $method, $matches)) {
             $action = $matches['action'];
             $type   = $this->_normalizeType($matches['type']);
             $argc   = count($args);
