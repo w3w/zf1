@@ -2300,4 +2300,38 @@ class Zend_Form_Element implements Zend_Validate_Interface
     {
         return !empty($this->_errorMessages);
     }
+
+    /**
+     * Adds a new CSS class to `class` attribute
+     *
+     * @param string $newClass
+     */
+    public function addCssClass($newClass)
+    {
+        $classString = $this->getAttrib('class');
+        if (!$classString) {
+            $classString = $newClass;
+        } else {
+            $classes = explode(' ', $classString);
+            $classes[] = $newClass;
+            $classes = array_unique($classes);
+            $classString = implode(' ', $classes);
+        }
+        $this->setAttrib('class', $classString);
+    }
+
+    /**
+     * Removes a CSS class from `class` attribute
+     *
+     * @param string $classToRemove
+     */
+    public function removeCssClass($classToRemove)
+    {
+        $class = $this->getAttrib('class');
+        $classes = explode(' ', $class);
+        if ($index = array_search($classToRemove, $classes)) {
+            unset($classes[$index]);
+        }
+        $this->setAttrib('class', implode(' ', $classes));
+    }
 }
