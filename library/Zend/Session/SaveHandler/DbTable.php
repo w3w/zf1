@@ -337,8 +337,6 @@ class Zend_Session_SaveHandler_DbTable
      */
     public function write($id, $data)
     {
-        $return = false;
-
         $data = array($this->_modifiedColumn => time(),
                       $this->_dataColumn     => (string) $data);
 
@@ -347,18 +345,14 @@ class Zend_Session_SaveHandler_DbTable
         if (count($rows)) {
             $data[$this->_lifetimeColumn] = $this->_getLifetime($rows->current());
 
-            if ($this->update($data, $this->_getPrimary($id, self::PRIMARY_TYPE_WHERECLAUSE))) {
-                $return = true;
-            }
+            $this->update($data, $this->_getPrimary($id, self::PRIMARY_TYPE_WHERECLAUSE));
         } else {
             $data[$this->_lifetimeColumn] = $this->_lifetime;
 
-            if ($this->insert(array_merge($this->_getPrimary($id, self::PRIMARY_TYPE_ASSOC), $data))) {
-                $return = true;
-            }
+            $this->insert(array_merge($this->_getPrimary($id, self::PRIMARY_TYPE_ASSOC), $data));
         }
 
-        return $return;
+        return true;
     }
 
     /**
@@ -369,13 +363,9 @@ class Zend_Session_SaveHandler_DbTable
      */
     public function destroy($id)
     {
-        $return = false;
+        $this->delete($this->_getPrimary($id, self::PRIMARY_TYPE_WHERECLAUSE));
 
-        if ($this->delete($this->_getPrimary($id, self::PRIMARY_TYPE_WHERECLAUSE))) {
-            $return = true;
-        }
-
-        return $return;
+        return true;
     }
 
     /**
