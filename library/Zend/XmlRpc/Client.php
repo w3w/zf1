@@ -273,7 +273,7 @@ class Zend_XmlRpc_Client
         }
 
         $http->setHeaders(array(
-            'Content-Type: text/xml; charset=utf-8',
+            'Content-Type: text/xml',
             'Accept: text/xml',
         ));
 
