@@ -85,3 +85,11 @@ unset($zfRoot, $zfCoreLibrary, $zfCoreTests, $path);
 // Suppress DateTime warnings
 date_default_timezone_set(@date_default_timezone_get());
 
+// Init autoloader
+include 'Zend/Loader/AutoloaderFactory.php';
+Zend_Loader_AutoloaderFactory::factory([
+    Zend_Loader_StandardAutoloader::class => [
+        'fallback_autoloader' => true,
+        'autoregister_zf' => true,
+    ],
+]);
