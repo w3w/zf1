@@ -253,7 +253,7 @@ abstract class Zend_Oauth_Token
         $params = array();
         $body   = $response->getBody();
         if (empty($body)) {
-            return;
+            return [];
         }
 
         // validate body based on acceptable characters...todo

@@ -129,7 +129,7 @@ class Zend_Validate_File_Upload extends Zend_Validate_Abstract
      */
     public function setFiles($files = array())
     {
-        if (count($files) === 0) {
+        if ((is_array($files) || $files instanceof Countable ? count($files) : ($files !== null ? 1 : 0)) === 0) {
             $this->_files = $_FILES;
         } else {
             $this->_files = $files;
