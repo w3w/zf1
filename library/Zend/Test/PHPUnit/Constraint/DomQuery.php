@@ -214,7 +214,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit\Framework\Constraint
      * @param  string   Failure description
      * @param  object   Cannot be used, null
      * @return void
-     * @throws PHPUnit_Framework_ExpectationFailedException
+     * @throws Zend_Test_PHPUnit_Constraint_Exception
      * NOTE:
      * Drastic changes up to PHPUnit 3.5.15 this was:
      *     public function fail($other, $description, $not = false)
@@ -224,7 +224,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit\Framework\Constraint
      * NOTE 2:
      * Interface changed again in PHPUnit 4.1.0 because of refactoring to SebastianBergmann\Comparator
      */
-    public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used = NULL)
+    public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = NULL): void
     {
         // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
@@ -279,7 +279,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit\Framework\Constraint
      *
      * @return string
      */
-    public function toString()
+    public function toString(): string
     {
         return '';
     }

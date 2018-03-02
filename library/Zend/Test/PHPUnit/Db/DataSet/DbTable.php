@@ -95,7 +95,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
      *
      * @return void
      */
-    protected function loadData()
+    protected function loadData(): void
     {
         if ($this->data === null) {
             $this->data = $this->_table->fetchAll(
@@ -110,7 +110,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
     /**
      * Create Table Metadata object
      */
-    protected function createTableMetaData()
+    protected function createTableMetaData(): void
     {
         if ($this->tableMetaData === NULL) {
             $this->loadData();

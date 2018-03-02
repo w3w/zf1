@@ -81,7 +81,7 @@ class Zend_Test_PHPUnit_Db_Connection extends PHPUnit\DbUnit\Database\DefaultCon
      *
      * @return void
      */
-    public function close()
+    public function close(): void
     {
         $this->_connection->closeConnection();
     }
