@@ -2329,7 +2329,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
     {
         $class = $this->getAttrib('class');
         $classes = explode(' ', $class);
-        if ($index = array_search($classToRemove, $classes)) {
+        $index = array_search($classToRemove, $classes);
+        if ($index !== false) {
             unset($classes[$index]);
         }
         $this->setAttrib('class', implode(' ', $classes));
