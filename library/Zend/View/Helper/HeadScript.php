@@ -77,7 +77,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * @var array
      */
     protected $_optionalAttributes = array(
-        'charset', 'defer', 'language', 'src'
+        'charset', 'defer', 'language', 'src', 'async'
     );
 
     /**
