@@ -302,7 +302,15 @@ abstract class Zend_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Abstract
     protected function _beginTransaction()
     {
         $this->_connect();
-        $this->_connection->beginTransaction();
+        if (!$this->_connection->beginTransaction()) {
+            $message = 'Begin transaction failed';
+            // PDO returns no error message for now, but it could be changed in future
+            $errorInfo = $this->_connection->errorInfo();
+            if (!empty($errorInfo[2])) {
+                $message .= ': ' . $errorInfo[2];
+            }
+            throw new Zend_Db_Adapter_Exception($message);
+        }
     }
 
     /**
@@ -311,15 +319,34 @@ abstract class Zend_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Abstract
     protected function _commit()
     {
         $this->_connect();
-        $this->_connection->commit();
+        if (!$this->_connection->commit()) {
+            $message = 'Commit failed';
+            // PDO returns no error message for now, but it could be changed in future
+            $errorInfo = $this->_connection->errorInfo();
+            if (!empty($errorInfo[2])) {
+                $message .= ': ' . $errorInfo[2];
+            } else {
+                $message .= ': deadlock (for Galera Cluster)';
+            }
+            throw new Zend_Db_Adapter_Exception($message);
+        }
     }
 
     /**
      * Roll-back a transaction.
      */
-    protected function _rollBack() {
+    protected function _rollBack()
+    {
         $this->_connect();
-        $this->_connection->rollBack();
+        if (!$this->_connection->rollBack()) {
+            $message = 'Rollback failed';
+            // PDO returns no error message for now, but it could be changed in future
+            $errorInfo = $this->_connection->errorInfo();
+            if (!empty($errorInfo[2])) {
+                $message .= ': ' . $errorInfo[2];
+            }
+            throw new Zend_Db_Adapter_Exception($message);
+        }
     }
 
     /**
