@@ -34,6 +34,8 @@
  *
  * @method $this append($content)
  * @method $this prepend($content)
+ * @method $this setSeparator($separator)
+ * @method $this set($title)
  */
 class Zend_View_Helper_HeadTitle extends Zend_View_Helper_Placeholder_Container_Standalone
 {
