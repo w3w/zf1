@@ -61,6 +61,8 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
         'extras',
         'sizes',
         'color', //see https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+        'crossorigin',
+        'as',
     );
 
     /**
