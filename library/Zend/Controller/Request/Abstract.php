@@ -78,7 +78,7 @@ abstract class Zend_Controller_Request_Abstract
     /**
      * Retrieve the module name
      *
-     * @return string
+     * @return string|null
      */
     public function getModuleName()
     {
