@@ -131,8 +131,8 @@ class Zend_Filter_Null implements Zend_Filter_Interface
      * Returns null representation of $value, if value is empty and matches
      * types that should be considered null.
      *
-     * @param  string $value
-     * @return string
+     * @param  mixed $value
+     * @return mixed
      */
     public function filter($value)
     {
