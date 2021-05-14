@@ -106,7 +106,7 @@ class Zend_Test_PHPUnit_Constraint_Redirect extends PHPUnit\Framework\Constraint
      *     public function evaluate($other, $description = '', $returnResult = FALSE)
      * We use the new interface for PHP-strict checking, but emulate the old one
      */
-    public function evaluate($other, $assertType = null, $variable = FALSE)
+    public function evaluateZF($other, $assertType = null, $variable = FALSE)
     {
         if (!$other instanceof Zend_Controller_Response_Abstract) {
             // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';

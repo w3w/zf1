@@ -20,6 +20,9 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\AssertionFailedError;
+use SebastianBergmann\Comparator\ComparisonFailure;
+
 /**
  * Zend_Test_PHPUnit_Constraint_Exception
  *
@@ -30,6 +33,23 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Test_PHPUnit_Constraint_Exception extends PHPUnit\Framework\ExpectationFailedException
+class Zend_Test_PHPUnit_Constraint_Exception extends AssertionFailedError
 {
+    /**
+     * @var ComparisonFailure
+     */
+    protected $comparisonFailure;
+
+    public function __construct(string $message, ComparisonFailure $comparisonFailure = null, Exception $previous = null)
+    {
+        $this->comparisonFailure = $comparisonFailure;
+
+        parent::__construct($message, 0, $previous);
+    }
+
+    public function getComparisonFailure(): ?ComparisonFailure
+    {
+        return $this->comparisonFailure;
+    }
+
 }

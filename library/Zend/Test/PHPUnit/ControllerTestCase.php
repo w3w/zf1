@@ -120,7 +120,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
      *
      * Calls {@link bootstrap()} by default
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->bootstrap();
     }
@@ -278,7 +278,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__)) {
             $constraint->fail($path, $message);
         }
     }
@@ -295,7 +295,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__)) {
             $constraint->fail($path, $message);
         }
     }
@@ -313,7 +313,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $match)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $match)) {
             $constraint->fail($path, $message);
         }
     }
@@ -331,7 +331,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $match)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $match)) {
             $constraint->fail($path, $message);
         }
     }
@@ -349,7 +349,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $pattern)) {
             $constraint->fail($path, $message);
         }
     }
@@ -367,7 +367,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $pattern)) {
             $constraint->fail($path, $message);
         }
     }
@@ -385,7 +385,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -403,7 +403,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -421,7 +421,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -439,7 +439,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/DomQuery.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -467,7 +467,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__)) {
             $constraint->fail($path, $message);
         }
     }
@@ -485,7 +485,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__)) {
             $constraint->fail($path, $message);
         }
     }
@@ -504,7 +504,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $match)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $match)) {
             $constraint->fail($path, $message);
         }
     }
@@ -523,7 +523,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $match)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $match)) {
             $constraint->fail($path, $message);
         }
     }
@@ -542,7 +542,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $pattern)) {
             $constraint->fail($path, $message);
         }
     }
@@ -561,7 +561,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $pattern)) {
             $constraint->fail($path, $message);
         }
     }
@@ -580,7 +580,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -599,7 +599,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -618,7 +618,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -637,7 +637,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_DomQuery($path);
         $constraint->registerXpathNamespaces($this->_xpathNamespaces);
         $content    = $this->response->outputBody();
-        if (!$constraint->evaluate($content, __FUNCTION__, $count)) {
+        if (!$constraint->evaluateZF($content, __FUNCTION__, $count)) {
             $constraint->fail($path, $message);
         }
     }
@@ -653,7 +653,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__)) {
             $constraint->fail($response, $message);
         }
     }
@@ -669,7 +669,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__)) {
             $constraint->fail($response, $message);
         }
     }
@@ -686,7 +686,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $url)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $url)) {
             $constraint->fail($response, $message);
         }
     }
@@ -703,7 +703,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $url)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $url)) {
             $constraint->fail($response, $message);
         }
     }
@@ -720,7 +720,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $pattern)) {
             $constraint->fail($response, $message);
         }
     }
@@ -737,7 +737,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/Redirect.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_Redirect();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $pattern)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $pattern)) {
             $constraint->fail($response, $message);
         }
     }
@@ -754,7 +754,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/ResponseHeader.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $code)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $code)) {
             $constraint->fail($response, $message);
         }
     }
@@ -772,7 +772,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $constraint->setNegate(true);
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $code)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $code)) {
             $constraint->fail($response, $message);
         }
     }
@@ -789,7 +789,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/ResponseHeader.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header)) {
             $constraint->fail($response, $message);
         }
     }
@@ -807,7 +807,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $constraint->setNegate(true);
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header)) {
             $constraint->fail($response, $message);
         }
     }
@@ -825,7 +825,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/ResponseHeader.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header, $match)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header, $match)) {
             $constraint->fail($response, $message);
         }
     }
@@ -844,7 +844,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $constraint->setNegate(true);
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header, $match)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header, $match)) {
             $constraint->fail($response, $message);
         }
     }
@@ -862,7 +862,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         // require_once 'Zend/Test/PHPUnit/Constraint/ResponseHeader.php';
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header, $pattern)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header, $pattern)) {
             $constraint->fail($response, $message);
         }
     }
@@ -881,7 +881,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
         $constraint = new Zend_Test_PHPUnit_Constraint_ResponseHeader();
         $constraint->setNegate(true);
         $response   = $this->response;
-        if (!$constraint->evaluate($response, __FUNCTION__, $header, $pattern)) {
+        if (!$constraint->evaluateZF($response, __FUNCTION__, $header, $pattern)) {
             $constraint->fail($response, $message);
         }
     }
