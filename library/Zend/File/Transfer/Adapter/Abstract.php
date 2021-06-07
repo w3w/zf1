@@ -742,7 +742,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     /**
      * Adds a new filter for this class
      *
-     * @param  string|array $filter Type of filter to add
+     * @param  string|Zend_Filter_Interface $filter Type of filter to add
      * @param  string|array $options   Options to set for the filter
      * @param  string|array $files     Files to limit this filter to
      * @return Zend_File_Transfer_Adapter
