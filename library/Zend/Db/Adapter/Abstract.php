@@ -928,7 +928,7 @@ abstract class Zend_Db_Adapter_Abstract
     public function quoteInto($text, $value, $type = null, $count = null)
     {
         if ($count === null) {
-            return str_replace('?', $this->quote($value, $type), $text);
+            return str_replace('?', $this->quote($value, $type) ?? '', $text);
         } else {
             return implode($this->quote($value, $type), explode('?', $text, $count + 1));
         }
