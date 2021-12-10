@@ -194,6 +194,12 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
             $sql = preg_replace("/$q([^$q{$escapeChar}]*|($qe)*)*$q/s", '', $sql);
         }
         
+        if ($sql === null) {
+            // this preg_replace may return NULL in case of error (PREG_BACKTRACK_LIMIT_ERROR).
+            // In that case the result of this method will be an empty string.
+            return '';
+        }
+
         // get a version of the SQL statement with all quoted
         // values and delimited identifiers stripped out
         // remove "foo\"bar"
