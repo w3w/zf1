@@ -225,13 +225,12 @@ abstract class Zend_Db_Table_Rowset_Abstract implements SeekableIterator, Counta
      * Similar to the reset() function for arrays in PHP.
      * Required by interface Iterator.
      *
-     * @return Zend_Db_Table_Rowset_Abstract Fluent interface.
+     * @return void
      */
     #[\ReturnTypeWillChange]
     public function rewind(): void
     {
         $this->_pointer = 0;
-        return $this;
     }
 
     /**
@@ -309,10 +308,10 @@ abstract class Zend_Db_Table_Rowset_Abstract implements SeekableIterator, Counta
      * Required by interface SeekableIterator.
      *
      * @param int $position the position to seek to
-     * @return Zend_Db_Table_Rowset_Abstract
+     * @return void
      * @throws Zend_Db_Table_Rowset_Exception
      */
-    public function seek($position)
+    public function seek($position): void
     {
         $position = (int) $position;
         if ($position < 0 || $position >= $this->_count) {
@@ -320,7 +319,6 @@ abstract class Zend_Db_Table_Rowset_Abstract implements SeekableIterator, Counta
             throw new Zend_Db_Table_Rowset_Exception("Illegal index $position");
         }
         $this->_pointer = $position;
-        return $this;
     }
 
     /**
@@ -343,7 +341,7 @@ abstract class Zend_Db_Table_Rowset_Abstract implements SeekableIterator, Counta
      * @param string $offset
      * @return Zend_Db_Table_Row_Abstract|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         $offset = (int) $offset;
         if ($offset < 0 || $offset >= $this->_count) {
