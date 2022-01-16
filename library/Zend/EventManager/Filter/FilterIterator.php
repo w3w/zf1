@@ -96,7 +96,8 @@ class Zend_EventManager_Filter_FilterIterator extends Zend_Stdlib_SplPriorityQue
      * @param  Zend_EventManager_Filter_FilterIterator $chain
      * @return mixed
      */
-    public function next($context = null, array $params = array(), $chain = null)
+    #[\ReturnTypeWillChange]
+    public function next($context = null, array $params = [], $chain = null)
     {
         if (empty($context) || $chain->isEmpty()) {
             return;
