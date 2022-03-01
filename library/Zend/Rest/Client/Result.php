@@ -169,8 +169,7 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
      *
      * @return SimpleXMLIterator
      */
-    #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return $this->_sxml;
     }
