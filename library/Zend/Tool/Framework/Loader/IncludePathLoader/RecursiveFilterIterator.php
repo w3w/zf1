@@ -51,7 +51,7 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
      *
      * @return unknown
      */
-    public function accept()
+    public function accept(): bool
     {
         $currentNode = $this->current();
         $currentNodeRealPath = $currentNode->getRealPath();
@@ -74,7 +74,7 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
      *
      * @return Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator
      */
-    public function getChildren()
+    public function getChildren(): ?\RecursiveFilterIterator
     {
         if (empty($this->ref)) {
             $this->ref = new ReflectionClass($this);
