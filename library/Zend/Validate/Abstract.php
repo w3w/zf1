@@ -134,7 +134,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * Sets the validation failure message template for a particular key
      *
      * @param  string $messageString
-     * @param  string $messageKey     OPTIONAL
+     * @param  string|null $messageKey     OPTIONAL
      * @return Zend_Validate_Abstract Provides a fluent interface
      * @throws Zend_Validate_Exception
      */
@@ -277,8 +277,8 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     }
 
     /**
-     * @param  string $messageKey
-     * @param  string $value      OPTIONAL
+     * @param  string|null $messageKey
+     * @param  string|null $value      OPTIONAL
      * @return void
      */
     protected function _error($messageKey, $value = null)
@@ -443,7 +443,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * Indicate whether or not translation should be disabled
      *
      * @param  bool $flag
-     * @return Zend_Validate_Abstract
+     * @return $this
      */
     public function setDisableTranslator($flag)
     {
