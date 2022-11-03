@@ -641,7 +641,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
                 }
             } else {
                 if ($this->_barcodeLength == 'even') {
-                    $text = ((strlen($text) - $omitChecksum) % 2 ? '0' . $text : $text);
+                    $text = ((strlen((string) $text) - $omitChecksum) % 2 ? '0' . $text : $text);
                 }
             }
         }
@@ -988,7 +988,7 @@ abstract class Zend_Barcode_Object_ObjectAbstract
         if ($value === null) {
             $value = $this->_text;
         }
-        if (!strlen($value)) {
+        if (!strlen((string) $value)) {
             // require_once 'Zend/Barcode/Object/Exception.php';
             throw new Zend_Barcode_Object_Exception(
                 'A text must be provide to Barcode before drawing'
