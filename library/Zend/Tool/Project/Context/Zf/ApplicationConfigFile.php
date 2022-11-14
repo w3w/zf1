@@ -38,6 +38,10 @@
  */
 class Zend_Tool_Project_Context_Zf_ApplicationConfigFile extends Zend_Tool_Project_Context_Filesystem_File
 {
+    /**
+     * @var string | null
+     */
+    protected $_type;
 
     /**
      * @var string
