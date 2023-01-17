@@ -194,13 +194,13 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     protected $_subForms = array();
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected $_translator;
 
     /**
      * Global default translation adapter
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected static $_translatorDefault;
 
@@ -3074,7 +3074,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     /**
      * Retrieve translator object
      *
-     * @return Zend_Translate|null
+     * @return Zend_Translate_Adapter|null
      */
     public function getTranslator()
     {
@@ -3102,7 +3102,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     /**
      * Get global default translator object
      *
-     * @return null|Zend_Translate
+     * @return null|Zend_Translate_Adapter
      */
     public static function getDefaultTranslator()
     {

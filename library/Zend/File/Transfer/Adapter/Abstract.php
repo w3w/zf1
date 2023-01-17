@@ -65,7 +65,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     protected $_messages = array();
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected $_translator;
 
@@ -1106,7 +1106,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     /**
      * Set translator object for localization
      *
-     * @param  Zend_Translate|null $translator
+     * @param  Zend_Translate|Zend_Translate_Adapter|null $translator
      * @return Zend_File_Transfer_Abstract
      * @throws Zend_File_Transfer_Exception
      */
