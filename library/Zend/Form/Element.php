@@ -604,9 +604,15 @@ class Zend_Form_Element implements Zend_Validate_Interface
     {
         $valueFiltered = $this->_value;
 
-        if ($this->isArray() && is_array($valueFiltered)) {
+        if ($valueFiltered !== null && $this->isArray()) {
+            // array value is forced for isArray() elements
+            $valueFiltered = (array) $valueFiltered;
             array_walk_recursive($valueFiltered, array($this, '_filterValue'));
         } else {
+            // arrays are not allowed for !isArray() elements
+            if (is_array($valueFiltered)) {
+                $valueFiltered = null;
+            }
             $this->_filterValue($valueFiltered, $valueFiltered);
         }
 
