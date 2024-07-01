@@ -921,7 +921,7 @@ abstract class Zend_Db_Adapter_Abstract
      *
      * @param string  $text  The text with a placeholder.
      * @param mixed   $value The value to quote.
-     * @param string  $type  OPTIONAL SQL datatype
+     * @param string|int  $type  OPTIONAL SQL datatype
      * @param integer $count OPTIONAL count of placeholders to replace
      * @return string An SQL-safe quoted value placed into the original text.
      */
@@ -965,7 +965,7 @@ abstract class Zend_Db_Adapter_Abstract
      * Quote a column identifier and alias.
      *
      * @param string|array|Zend_Db_Expr $ident The identifier or expression.
-     * @param string $alias An alias for the column.
+     * @param string|null $alias An alias for the column.
      * @param boolean $auto If true, heed the AUTO_QUOTE_IDENTIFIERS config option.
      * @return string The quoted identifier and alias.
      */
@@ -991,7 +991,7 @@ abstract class Zend_Db_Adapter_Abstract
      * Quote an identifier and an optional alias.
      *
      * @param string|array|Zend_Db_Expr $ident The identifier or expression.
-     * @param string $alias An optional alias.
+     * @param string|null $alias An optional alias.
      * @param boolean $auto If true, heed the AUTO_QUOTE_IDENTIFIERS config option.
      * @param string $as The string to add between the identifier/expression and the alias.
      * @return string The quoted identifier and alias.

@@ -374,7 +374,7 @@ class Zend_Log
      *   $log->log('message', Zend_Log::PRIORITY_NAME)
      *
      * @param  string  $method  priority name
-     * @param  string  $params  message to log
+     * @param  array   $params  message to log
      * @return void
      * @throws Zend_Log_Exception
      */

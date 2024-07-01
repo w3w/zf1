@@ -59,7 +59,7 @@ class Zend_Validate_Digits extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value only contains digit characters
      *
-     * @param  string $value
+     * @param  string|float|int $value
      * @return boolean
      */
     public function isValid($value)
