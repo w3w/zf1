@@ -376,7 +376,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
      * Assert against DOM selection; should contain exact number of nodes
      *
      * @param string $path CSS selector path
-     * @param string $count Number of nodes that should match
+     * @param int|string $count Number of nodes that should match
      * @param string $message
      */
     public function assertQueryCount($path, $count, $message = '')
@@ -570,7 +570,7 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
      * Assert against XPath selection; should contain exact number of nodes
      *
      * @param string $path XPath path
-     * @param string $count Number of nodes that should match
+     * @param int|string $count Number of nodes that should match
      * @param string $message
      */
     public function assertXpathCount($path, $count, $message = '')
