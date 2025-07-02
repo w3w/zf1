@@ -102,6 +102,13 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     protected static $_messageLength = -1;
 
     /**
+     * Message keys with specific custom messages set via setMesssage()
+     *
+     * @var array
+     */
+    protected $_overridedMessageKeys = array();
+
+    /**
      * Returns array of validation failure messages
      *
      * @return array
@@ -154,6 +161,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
             throw new Zend_Validate_Exception("No message template exists for key '$messageKey'");
         }
 
+        $this->_overridedMessageKeys[$messageKey] = true;
         $this->_messageTemplates[$messageKey] = $messageString;
         return $this;
     }
@@ -217,7 +225,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
         $message = $this->_messageTemplates[$messageKey];
 
         if (null !== ($translator = $this->getTranslator())) {
-            if ($translator->isTranslated($messageKey)) {
+            if (!isset($this->_overridedMessageKeys[$messageKey]) && $translator->isTranslated($messageKey)) {
                 $message = $translator->translate($messageKey);
             } else {
                 $message = $translator->translate($message);
