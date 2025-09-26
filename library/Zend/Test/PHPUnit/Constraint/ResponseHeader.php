@@ -204,7 +204,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader extends PHPUnit\Framework\Cons
      * NOTE 2:
      * Interface changed again in PHPUnit 4.1.0 because of refactoring to SebastianBergmann\Comparator
      */
-    public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = null): void
+    public function fail(mixed $other, string $description, \SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = null): never
     {
         // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
